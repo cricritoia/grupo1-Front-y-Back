@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Inmobiliaria Codo</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="contenedor">
+    <header class="header header-contacto">
+        <div class="contenedor">
+            <div class="contenido-header">
+                <h1 class="logo">
+                    <a href="/index.html">
+                        Inmobiliaria
+                        <span class="span-logo">Codo</span>
+                    </a>
+                </h1>
+                <h3>Contacto</h3>
+                <nav class="navegacion-principal">
+                    <a href="/index.html">Inicio</a>
+                    <a class="enlace-actual" href="contacto.html">Contacto</a>
+                    <a href="propiedades.html">Propiedades</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="ventas.html">Ventas</a>
+                    <a href="alquileres.html">Alquileres</a>
+                </nav>
+            </div>
+            <div class="contenedor contenido-imagen-header" >
+                <h2 class="titulo2">Conectar, colaborar, crecer juntos.</h2>
+            </div>
+            
+        </div>
+    </header>
+    <main class="main-contacto">
+        <form class="formulario" id="formulario">
+            <fieldset class="info-personal">
+                <legend>Información Personal</legend>
+
+                <label for="nombre">Nombre</label>
+                <input type="text" placeholder="Tu Nombre" id="nombre">
+
+                <label for="email">E-mail</label>
+                <input type="email" placeholder="Tu Email" id="email">
+
+                <label for="telefono">Teléfono</label>
+                <input type="tel" placeholder="Tu Teléfono" id="telefono">
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje"></textarea>
+            </fieldset>
+
+            <fieldset class="info-compra-venta">
+                <legend>En que te podemos ayudar?</legend>
+
+                <label for="opciones">Vende o Compra:</label>
+                <select id="opciones">
+                    <option value="" disabled selected>-- Seleccione --</option>
+                    <option value="Compra">Compra</option>
+                    <option value="Vende">Vende</option>
+                </select>
+
+                <label for="presupuesto">Precio o Presupuesto</label>
+                <input type="number" placeholder="Tu Precio o Presupuesto" id="presupuesto">
+
+                <p>Si usted Vende adjunte una imagen de la Propiedad</p>
+                <label for="archivo"> Imagen de la Propiedad</label>
+                <input type="file" placeholder="Seleccionar imagen" id="archivo">
+
+            </fieldset>
+
+
+            <fieldset class="info-contacto">
+                <legend>Información sobre Contacto</legend>
+
+                <p>Como desea ser contactado?</p>
+
+                <div class="forma-contacto">
+                    <label for="contactarTelefono">Teléfono</label>
+                    <input name="contacto" type="radio" value="telefono" id="contactarTelefono">
+
+                    <label for="contactarEmail">E-mail</label>
+                    <input name="contacto" type="radio" value="email" id="contactarEmail">
+                </div>
+
+                <p>Si eligió teléfono, elija la fecha y la hora</p>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha">
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" min="09:00" max="18:00">
+
+            </fieldset>
+
+        </form>
+        <input type="submit" value="Enviar" class="boton" id="enviar">
+    </div>
+    </main>
+    <footer>
+        <div class="contenedor contenido-footer">
+            <div class="contenido-sociales">
+                <a href="https://mail.google.com/">
+                    <img class="icons" src="../public/email.svg" alt="Icono E-mail">
+                </a>
+                <a href="https://www.facebook.com/">
+                    <img class="icons" src="../public/facebook.svg" alt="Icono Facebook">
+                </a>
+                <a href="https://www.instagram.com/">    
+                    <img class="icons" src="../public/instagram.svg" alt="Icono Instagram">
+                </a>
+                <a href="https://web.whatsapp.com/">
+                    <img class="icons"src="../public/wathsapp.svg" alt="Icono Wathsapp">
+                </a>
+            </div>
+
+            <nav class="navegacion-principal">
+                <a href="/index.html">Inicio</a>
+                <a class="enlace-actual" href="contacto.html">Contacto</a>
+                <a href="propiedades.html">Propiedades</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="ventas.html">Ventas</a>
+                <a href="alquileres.html">Alquileres</a>
+            </nav>
+            <h5 class="Copyright">Copyright © 2024 Inmobiliaria Codo | Powered by Grupo 1</h5>
+        </div>
+    </footer>
+
+    <script src="../js/validaciones.js"></script>
+
+</body>
+</html>
