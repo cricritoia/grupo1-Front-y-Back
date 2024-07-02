@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propiedades consultas</title>
+  <style>
+    h1{
+      text-align: center;
+    }
+
+    .property-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      max-width: 30%;
+     
+    }
+    .property-card img {
+      max-width: 100%;
+      height: auto;
+    }
+    .contenedor-prop{
+      background-color:darkgrey;
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .contenedor-prop > * {
+      flex-basis: calc(33.33% - 10px); /* Ajusta el ancho de cada hijo */
+      margin: 10px; /* Agrega un margen entre los hijos */
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Propiedades disponibles</h1>
+  <div id="property-list" class="contenedor-prop"></div>
+
+  <script>
+
+    const url = new URL(window.location.href);
+
+    console.log("la url es:",url)
+
+    // Obtener el elemento donde se mostrarán las propiedades
+    const propertyList = document.getElementById('property-list');
+
+    // Función para mostrar las propiedades
+    function displayProperties(properties) {
+      // Limpiar el contenido anterior
+      propertyList.innerHTML = '';
+
+      // Iterar sobre las propiedades y crear los elementos HTML
+      properties.forEach(property => {
+        // Crear el elemento de la propiedad
+        const propertyCard = document.createElement('div');
+        propertyCard.classList.add('property-card');
+
+        // Crear la imagen
+        const imageElement = document.createElement('img');
+        imageElement.src = "/public/img/"+property.ruta_imagen;
+        console.log("ruta de la imagen",imageElement.src)
+        imageElement.alt = `Propiedad ${property.id_propiedad}`;
+
+        // Crear los detalles de la propiedad
+        const locationElement = document.createElement('p');
+        locationElement.textContent = `Ubicación: ${property.ubicacion}`;
+
+        const sizeElement = document.createElement('p');
+        sizeElement.textContent = `Superficie: ${property.metros_cuadrados} m²`;
+
+        const priceElement = document.createElement('p');
+        priceElement.textContent = `Precio: $${property.precio}`;
+
+        const descriptionElement = document.createElement('p');
+        descriptionElement.textContent = `Descripción: ${property.descripcion}`;
+
+        // Agregar los elementos a la tarjeta de la propiedad
+        propertyCard.appendChild(imageElement);
+        propertyCard.appendChild(locationElement);
+        propertyCard.appendChild(sizeElement);
+        propertyCard.appendChild(priceElement);
+        propertyCard.appendChild(descriptionElement);
+
+        // Agregar la tarjeta de la propiedad a la lista
+        propertyList.appendChild(propertyCard);
+      });
+    }
+
+    // Obtener las propiedades desde la API
+    fetch('http://localhost:3000/propiedades')
+    
+  
+      .then(response => response.json())
+      
+      .then(data => displayProperties(data))
+      .catch(error => console.error('Error:', error));
+  </script>
+</body>
+</html>
